@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Miklombok | Tool Mikrotik</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/logo.png" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+  </head>
+  <body>
+    <!-- navba  -->
+    <div class="container">
+        <nav class="navbar navbar-light bg-ligh">
+          <div class="container ">
+            <a class="navbar-brand" href="#">
+              <img
+                src="img/logo.png"
+                class="me-2"
+                height="20"
+                alt=""
+                loading="lazy"
+              />
+              <small class="font-monospace fw-bold">SCRIPT MIKLOMBOK</small>
+            </a>
+          </div>
+        </nav>
+    </div>
+    <!-- nav end -->
+    <!-- menu -->
+    <div class="container mt-1">
+       <div class="row navbar bg-dark">
+        <div class="col-md-4 text-center monospace fw-bold text-white ">Select Scrip Generator</div>
+        <div class="col-md-8 text-center bg-light monospace fw-bold"> <marquee scrolldelay="25">Copy To Terminal</marquee></div>
+      </div>
+    </div>
+
+    <!-- conten  -->
+    <div class="container mt-2">
+       <div class="row bg-light">
+        <div class="col-4 text-space">
+          <div class="collapse" id="navbarToggleExternalContent">
+                  <div
+                      class="nav flex-column nav-tabs text-space"
+                      id="v-tabs-tab "
+                      role="tablist"
+                      aria-orientation="vertical">
+                      <a
+                        class="nav-link active "
+                        id="v-tabs-info-tab"
+                        data-mdb-toggle="tab"
+                        href="#v-tabs-info"
+                        role="tab"
+                        aria-controls="v-tabs-info"
+                        aria-selected="true"
+                        >Info</a>
+                      <a
+                        class="nav-link "
+                        id="v-tabs-AllTrafik-tab"
+                        data-mdb-toggle="tab"
+                        href="#v-tabs-AllTrafik"
+                        role="tab"
+                        aria-controls="v-tabs-AllTrafik"
+                        aria-selected="false"
+                        >Monitoring Hotspot Telegram</a>
+                      <a
+                        class="nav-link"
+                        id="v-tabs-LoadbalnceFailover-tab"
+                        data-mdb-toggle="tab"
+                        href="#v-tabs-LoadbalnceFailover"
+                        role="tab"
+                        aria-controls="v-tabs-LoadbalnceFailover"
+                        aria-selected="false"
+                        >Loadbalance Failover</a>
+                      <a
+                        class="nav-link"
+                        id="v-tabs-sntpserver-tab"
+                        data-mdb-toggle="tab"
+                        href="#v-tabs-sntpserver"
+                        role="tab"
+                        aria-controls="v-tabs-sntpserver"
+                        aria-selected="false"
+                        >Sntp Server</a
+                      >
+                       <a
+                        class="nav-link"
+                        id="v-tabs-nat-tab"
+                        data-mdb-toggle="tab"
+                        href="#v-tabs-nat"
+                        role="tab"
+                        aria-controls="v-tabs-portgame"
+                        aria-selected="false"
+                        >Hide ip Local</a
+                      >
+                    </div>
+                
+          </div>
+          <nav class="navbar navbar-dark bg-dark">
+            <div class="container">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarToggleExternalContent"
+                aria-controls="navbarToggleExternalContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <i class="fas fa-bars"></i>
+              </button>
+            </div>
+          </nav>
+        </div>
+
+        <div class="col-md-8">
+       
+                   <div class="tab-content" id="v-tabs-tabContent">
+                    <div
+                        class="tab-pane fade show active"
+                        id="v-tabs-info"
+                        role="tabpanel"
+                        aria-labelledby="v-tabs-info-tab">
+
+                        <!-- Button trigger modal -->
+                          <button
+                            type="button "
+                            class="btn btn-primary text-center mt-1"
+                            data-mdb-toggle="modal"
+                            data-mdb-target="#exampleModal"
+                          >
+                            Penting !!!
+                          </button>
+
+                          <!-- Modal -->
+                          <div
+                            class="modal fade"
+                            id="exampleModal"
+                            tabindex="-1"
+                            aria-labelledby="exampleModalLabel"
+                            aria-hidden="true"
+                          >
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Info</h5>
+                                  <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-mdb-dismiss="modal"
+                                    aria-label="Close"
+                                  ></button>
+                                </div>
+                                <div class="modal-body">Jangan Asal Kompas ya !!! </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-danger" data-mdb-dismiss="modal">
+                                    Selamat Mencoba
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div
+                        class="tab-pane fade "
+                        id="v-tabs-AllTrafik"
+                        role="tabpanel"
+                        aria-labelledby="v-tabs-AllTrafik-tab"
+                      ><h3>Login</h3>
+                        :put (",,0,,,,Disable,");{ <br>
+                        :local mac $"mac-address"; <br>
+                        :local Mwp [/ip hotspot user get [find name="$user"] uptime]; <br>
+                        :local dvc [/ip dhcp-server lease get [find mac-address="$mac"] host-name]; <br>
+                        :local Mpkt [/ip hotspot user get [find name="$user"] profile]; <br>
+                        :local Md [/ip hotspot user get [find name="$user"] bytes-in]; <br>
+                        :local Mu [/ip hotspot user get [find name="$user"] bytes-out]; <br>
+                        :local limit [/ip hotspot user get [find name="$user"] limit-bytes-total]; <br>
+                        :local totq [(($limit)/1048576)]; <br>
+                        :local Mt [((($Md)+($Mu))/1048576)]; <br>
+                        :local sisa [($totq-($Md+$Mu)/1048576)]; <br>
+                        :local exp [/ip hotspot user get [find name="$user"] comment]; <br>
+                        :local Ma [/ip hotspot active print count-only]; <br>
+                        /tool fetch url="https://<span class="text-dark fw-bold"  >ISIKAN BOOT TELGRAM ANDA</span>/ <br>sendMessage?chat_id=<span class="text-dark fw-bold">ID TELEGRAM</span>&text==>> LOG-IN $user <<==%0A- IP Address : $address%0A- Mac Address <br>: $mac%0A- Device : $dvc%0A- <span class="text-dark fw-bold">User Profil </span> : 1k/3jam%0A- Waktu Terpakai : $Mwp%0A- Kuota Terpakai : <br>$Mt Mb%0A- exp : $exp%0A- Online : $Ma Users" mode=http keep-result=no} <br> <br>
+
+                          <h3>Logout</h3>
+                          /tool fetch url="<span class="text-dark fw-bold"  >ISIKAN BOOT TELGRAM ANDA</span>/sendMessage?chat_id=<span class="text-dark fw-bold">ID TELEGRAM</span>&text=Logout $user $address" keep-result=no
+
+
+
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-tabs-LoadbalnceFailover"
+                        role="tabpanel"
+                        aria-labelledby="v-tabs-LoadbalnceFailover-tab"
+                      >
+                        /ip dhcp-client <br>
+                          add add-default-route=no comment=defconf dhcp-options=hostname,clientid \
+                              disabled=no interface=WAN1
+                          add add-default-route=no dhcp-options=hostname,clientid disabled=no \
+                              interface=WAN2 <br><br>
+                            
+                          / ip firewall mangle <br>
+                          add chain=prerouting dst-address=192.168.0.0/24  action=accept in-interface=bridge
+                          add chain=prerouting dst-address=192.168.11.0/24  action=accept in-interface=bridge <br><br>
+                          
+                          add chain=prerouting in-interface=WAN1 connection-mark=no-mark action=mark-connection new-connection-mark=WAN1_conn
+                          add chain=prerouting in-interface=WAN2 connection-mark=no-mark action=mark-connection new-connection-mark=WAN2_conn <br><br>
+                            
+                          add chain=prerouting  in-interface=bridge connection-mark=no-mark dst-address-type=!local per-connection-classifier=both-addresses:2/0 action=mark-connection new-connection-mark=WAN1_conn 
+                          add chain=prerouting  in-interface=bridge connection-mark=no-mark dst-address-type=!local per-connection-classifier=both-addresses:2/1 action=mark-connection new-connection-mark=WAN2_conn
+                            <br><br>
+                          add chain=prerouting connection-mark=WAN1_conn in-interface=bridge action=mark-routing new-routing-mark=to_WAN1
+                          add chain=prerouting connection-mark=WAN2_conn in-interface=bridge action=mark-routing new-routing-mark=to_WAN2<br><br>
+                            
+                          add chain=output connection-mark=WAN1_conn action=mark-routing new-routing-mark=to_WAN1     
+                          add chain=output connection-mark=WAN2_conn action=mark-routing new-routing-mark=to_WAN2 <br><br>
+                            
+                          / ip route <br>
+                          add dst-address=0.0.0.0/0 gateway=192.168.11.1 routing-mark=to_WAN1 check-gateway=ping
+                          add dst-address=0.0.0.0/0 gateway=192.168.0.1 routing-mark=to_WAN2 check-gateway=ping <br><br>
+
+                          add dst-address=0.0.0.0/0 gateway=192.168.11.1 distance=1 check-gateway=ping
+                          add dst-address=0.0.0.0/0 gateway=192.168.0.1 distance=2 check-gateway=ping <br><br>
+
+                          / ip firewall nat <br> 
+                          add chain=srcnat out-interface=WAN1 action=masquerade <br>
+                          add chain=srcnat out-interface=WAN2 action=masquerade
+
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-tabs-sntpserver"
+                        role="tabpanel"
+                        aria-labelledby="v-tabs-sntpserver-tab"
+                      >
+                        system ntp client <br>
+                        /system ntp client> set enable=yes primary-ntp=111.92.175.248 secondary-ntp=130.54.208.201 mode=unicast
+                      </div>
+                       <div
+                        class="tab-pane fade"
+                        id="v-tabs-nat"
+                        role="tabpanel"
+                        aria-labelledby="v-tabs-nat-tab"
+                      >
+                       /ip firewall nat add chain=srcnat src-address=10.0.0.0/24 action=src-nat to-addresses=172.16.16.1 out-interface=WAN <br><br>
+                       #https://help.mikrotik.com/
+                      </div>
+                    </div>
+                
+        </div>
+      </div>
+    </div>
+ <!-- end content -->
+          <!-- foother -->
+          <div class="container">
+            <footer class=" text-center">
+            <!-- Copyright -->
+            <div class="text-center p-3 bg-light">
+              © 2021
+              <a class="text-dark font-monospace fw-bold" href="https://miklom.blogspot.com/">miklombok.blogspot.com</a>
+            </div>
+            <!-- Copyright -->
+          </footer>
+          </div>
+
+
+
+          <!-- modal -->
+
+          <!-- end modal -->
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+   
+  </body>
+</html>
