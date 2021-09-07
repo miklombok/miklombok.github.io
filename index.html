@@ -128,7 +128,7 @@
                             role="tab"
                             aria-controls="v-tabs-sntpserver"
                             aria-selected="false"
-                            >Sntp Server</a
+                            >Mikrotik SNTP Client</a
                           >
                            <a
                             class="nav-link"
@@ -139,6 +139,49 @@
                             aria-controls="v-tabs-portgame"
                             aria-selected="false"
                             >Hide ip Local</a
+                          >
+                           <a
+                            class="nav-link"
+                            id="v-tabs-dns-tab"
+                            data-mdb-toggle="tab"
+                            href="#v-tabs-dns"
+                            role="tab"
+                            aria-controls="v-tabs-portgame"
+                            aria-selected="false"
+                            >Dns mikrotik joss</a
+                          >
+
+                           <a
+                            class="nav-link"
+                            id="v-tabs-bot-tab"
+                            data-mdb-toggle="tab"
+                            href="#v-tabs-bot"
+                            role="tab"
+                            aria-controls="v-tabs-portgame"
+                            aria-selected="false"
+                            >Mengamankan Protected Bootloader</a
+                          >
+
+                            <a
+                            class="nav-link"
+                            id="v-tabs-login-tab"
+                            data-mdb-toggle="tab"
+                            href="#v-tabs-login"
+                            role="tab"
+                            aria-controls="v-tabs-portgame"
+                            aria-selected="false"
+                            >Masalah login saat LB PCC</a
+                          >
+
+                           <a
+                            class="nav-link"
+                            id="v-tabs-voucher-tab"
+                            data-mdb-toggle="tab"
+                            href="#v-tabs-voucher"
+                            role="tab"
+                            aria-controls="v-tabs-portgame"
+                            aria-selected="false"
+                            >Mikhmon Android</a
                           >
                         </div>
                             
@@ -285,7 +328,9 @@
                             role="tabpanel"
                             aria-labelledby="v-tabs-sntpserver-tab"
                           >
-                            /system ntp client> set enable=yes primary-ntp=111.92.175.248 secondary-ntp=130.54.208.201 mode=unicast
+                            Ada banyak NTP Server di internet yang bisa digunakan. <br>
+                            Contoh : id.pool.ntp.org , ntp.nasa.gov ,dsb. Gunakan mode=unicast. <br><br>
+                            /system ntp client> set enable=yes primary-ntp=id.pool.ntp.org secondary-ntp=ntp.nasa.gov mode=unicast
 
                           </div>
                            <div
@@ -296,6 +341,118 @@
                           >
                            /ip firewall nat add chain=srcnat src-address=10.0.0.0/24 action=src-nat to-addresses=172.16.16.1 out-interface=WAN <br><br>
                            
+                          </div>
+
+                           <div
+                            class="tab-pane fade"
+                            id="v-tabs-dns"
+                            role="tabpanel"
+                            aria-labelledby="v-tabs-dns-tab"
+                          >
+                            /ip dns set allow-remote-requests=yes cache-max-ttl=1d cache-size=5000KiB servers=8.8.8.8,8.8.4.4,1.1.1.1,9.9.9.9 <br><br>
+                            /ip firewall nat
+                            add action=redirect chain=dstnat dst-port=53 protocol=tcp to-ports=53
+                            add action=redirect chain=dstnat dst-port=53 protocol=udp to-ports=53 <br><br>
+                            /ip firewall filter 
+                            add action=drop chain=input dst-port=53 in-interface-list=WAN protocol=tcp
+                            add action=drop chain=input dst-port=53 in-interface-list=WAN protocol=udp 
+                            <br><br><br><br><br><br><br>
+                            #sumber: o-om.com
+                           
+                          </div>
+
+                           <div
+                            class="tab-pane fade"
+                            id="v-tabs-bot"
+                            role="tabpanel"
+                            aria-labelledby="v-tabs-bot-tab"
+                          >
+                            #====================================== <br>
+                            # ANTI HACKER PROTECTED BOOTLOADER BY BUANANET SECURE! <br>
+                            #====================================== <br>
+                            # Set Local String
+                            :local logprotectedrouterboot; <br>
+                            :local logreformatholdbutton; <br>
+                            :local logreformatholdbuttonmax; <br>
+                            # Set local Input <br>
+                            :set logprotectedrouterboot "$[/system routerboard setting get protected-routerboot]" <br>
+                            :set logreformatholdbutton "$[/system routerboard setting get reformat-hold-button]" <br>
+                            :set logreformatholdbuttonmax "$[/system routerboard setting get reformat-hold-button-max]" <br>
+                            # Cek jika Bootloader diubah ke Enable <br>
+                            :if ($logprotectedrouterboot ="enabled") do={ <br>
+                            # Set info reformat hold button di Identity di winbox untuk jaga-jaga <br>
+                            /system identity set name="BOOTLOADER > Min:$logreformatholdbutton - Max:$logreformatholdbuttonmax" <br>
+                            # Kembalikan BootLoader Kepengaturan Awal <br> 
+                            /system routerboard setting set protected-routerboot disabled <br>
+                            /system routerboard setting set reformat-hold-button=20s <br>
+                            /system routerboard setting set reformat-hold-button-max=10m <br>
+                            # tahan 5 detik <br>
+                            :delay 5s <br>
+                            # Shutdown mikrotik atau bisa gunakan /system reboot <br>
+                            /system shutdown
+                            } 
+                            <br><br><br><br><br><br><br>
+                            #sumber: https://www.o-om.com/2020/10/script-mengamankan-protected-bootloader.html
+                           
+                          </div>
+
+                          <div
+                            class="tab-pane fade"
+                            id="v-tabs-login"
+                            role="tabpanel"
+                            aria-labelledby="v-tabs-login-tab"
+                          >
+                            /ip firewall address-list<br>
+                            add list=LOCAL-IP address=0.0.0.0/8<br>
+                            add list=LOCAL-IP address=10.0.0.0/8<br>
+                            add list=LOCAL-IP address=100.64.0.0/10<br>
+                            add list=LOCAL-IP address=127.0.0.0/8<br>
+                            add list=LOCAL-IP address=169.254.0.0/16<br>
+                            add list=LOCAL-IP address=172.16.0.0/12<br>
+                            add list=LOCAL-IP address=192.0.0.0/24<br>
+                            add list=LOCAL-IP address=192.0.2.0/24<br>
+                            add list=LOCAL-IP address=192.168.0.0/16<br>
+                            add list=LOCAL-IP address=198.18.0.0/15<br>
+                            add list=LOCAL-IP address=198.51.100.0/24<br>
+                            add list=LOCAL-IP address=203.0.113.0/24<br>
+                            add list=LOCAL-IP address=224.0.0.0/4<br>
+                            add list=LOCAL-IP address=240.0.0.0/4<br><br>
+
+                            /ip firewall mangle<br>
+                            add action=accept chain=prerouting dst-address-list=LOCAL-IP src-address-list=LOCAL-IP<br>
+                            add action=accept chain=postrouting dst-address-list=LOCAL-IP src-address-list=LOCAL-IP<br>
+                            add action=accept chain=forward dst-address-list=LOCAL-IP src-address-list=LOCAL-IP<br>
+                            add action=accept chain=input dst-address-list=LOCAL-IP src-address-list=LOCAL-IP<br>
+                            add action=accept chain=output dst-address-list=LOCAL-IP src-address-list=LOCAL-IP<br>
+                            <br><br><br><br><br><br><br>
+                            #sumber: o-om.com
+                           
+                          </div>
+                          <div
+                            class="tab-pane fade"
+                            id="v-tabs-voucher"
+                            role="tabpanel"
+                            aria-labelledby="v-tabs-voucher-tab"
+                          >
+                            Panduan Install Mikhmon di Android via Termux <br>
+                            Install Termux PlayStore.<br><br>
+
+                            Munculkan CTRL di Termux : Tekan volume up + q <br><br>
+
+                            Jalankan command berikut di Termux<br><br>
+
+                            pkg update && pkg upgrade -y<br>
+                            pkg install curl<br>
+                            curl -o install-mikhmon https://laksa19.github.io/install-mikhmon.txt<br>
+                            chmod +x install-mikhmon<br>
+                            ./install-mikhmon<br>
+                            Buka url http://127.0.0.1:8080 di browser Anda.<br><br>
+                            Command<br>
+                            Start Mikhmon : ./start-mikhmon<br>
+                            Update Mikhmon : ./update-mikhmon<br>
+                            Remove Mikhmon : ./remove-mikhmon<br>
+                            <br><br><br><br><br><br><br>
+                            #sumber: laksa19.github.io
                           </div>
                         </div>
             </div>
