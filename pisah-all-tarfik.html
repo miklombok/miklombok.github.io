@@ -94,18 +94,21 @@
                   <label for="exampleInputEmail1">INTERFACE</label>
                   <input type="text" class="form-control" id="interface" aria-describedby="emailHelp" placeholder="Ex: ehter1">
                 </div>
+		      
+		<div class="form-group">
+                  <label for="exampleInputPassword1">GATEWAY ISP2</label>
+                  <input type="text" class="form-control" placeholder="Ex: 192.168.2.1" id="ipisp2">
+                </div>  
+		      
                 <div class="form-group">
                   <label for="exampleInputEmail1">IP HOTSPOT</label>
                   <input type="text" class="form-control" id="iphotspot" aria-describedby="emailHelp" placeholder="Ex: 192.168.55.0/24">
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">GATEWAY ISP2</label>
-                  <input type="text" class="form-control" placeholder="Ex: 192.168.2.1" id="ipisp2">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">IP Warnet/ Client Rumahan [PPPoE]</label>
+		      
+		<div class="form-group">
+                  <label for="exampleInputEmail1">IP PPPoE</label>
                   <input type="text" class="form-control" id="ipppoe" aria-describedby="emailHelp" placeholder="192.168.10.0/24">
-                </div>
+                </div>       
                 <hr>
                 <button type="submit" class="btn btn-primary" onclick="vm.kirim()">Generate</button>
               </form>
