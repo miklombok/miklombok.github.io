@@ -406,7 +406,7 @@
                             default <br /><br />
 
                             /queue tree <br />
-                            add max-limit=100M name="Client Priority"
+                            add max-limit=<span class="text-danger">{{t_down}}M</span> name="Client Priority"
                             parent=global priority=1 queue=\ <br />
                             piffo-packet <br />
                             add bucket-size=1 max-limit=<span class="text-danger">{{limit_game_down}}M</span> name="A. Game
