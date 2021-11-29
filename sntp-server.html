@@ -47,9 +47,11 @@
                               Mikrotik Sebagai NTP Client
                               Pada package system RouterOS Mikrotik sudah terdapat fitur SNTP (Simple Network Time Protocol) Client yang bisa digunakan <br>untuk memfungsikan Router sebagai NTP Client. Saat menyala, Router akan otomatis melakukan sinkronisasi waktu terhadap NTP <br>Server yang ditunjuk sehingga pengaturan waktu akan tetap update. <br><br>
 
-                              Ada banyak NTP Server di internet yang bisa digunakan. Contoh : <br>
-                              1. id.pool.ntp.org <br>
-                              2. ntp.nasa.gov . dsb. <br>
+                              Langkah - langkah konfigurasi clock dan sntp client mikrotik: : <br>
+                              1. Klik menu System -> SNTP Client <br>
+                                - Centang Enable <br>
+                              2. isi Primary NTP Server: 0.id.pool.ntp.org <br>
+                              3. isi Secondary NTP Server: 1.id.pool.ntp.org <br>
                               dan jangan lupa menggunakan mode=unicast..
                          
                             
