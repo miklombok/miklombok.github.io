@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=5.0, minimum-scale=0.86">
+      <meta http-equiv="x-ua-compatible" content="ie=edge" />
+      <meta name="google-site-verification" content="pwdq2w9VuNoMWvD762vfyZfuk0zgEpGnRZQ2p_KS-10" />
+      <meta property="fb:pages" content="111280197728781" />
+      <meta content='Tools script mikrtoik online  miklombok.github.io' name='description'/>
+      <meta content='hotspot, mikrotik, script, wifi, vpn,' name='keywords'/>
+      <meta property="og:title" content="SETTING MIKROTIK SYSTEM VOUCHER tutor By Miklombok">
+      <meta property="og:description" content="SETTING MIKROTIK SYSTEM VOUCHER tutor By Miklombok">
+      <meta property="og:image:alt" content="SETTING MIKROTIK SYSTEM VOUCHER tutor By Miklombok">
+      <meta property="og:type" content="website">
+      <meta property="og:image" content="https://raw.githubusercontent.com/miklombok/miklombok.github.io/main/img/bg3.png">
+      <meta property="og:url" content="https://miklombok.github.io/hotspot-mikrotik.html">
+        <title>setting mikrotik hotspot - Miklombok</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="img/logo.png" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+       
+        <!-- Page content-->
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Post content-->
+                    <article>
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- Post title-->
+                            <h1 class="fw-bolder mb-1">SETTING MIKROTIK SYSTEM VOUCHER</h1>
+                            <!-- Post meta content-->
+                            <div class="text-muted fst-italic mb-2">Post November 30, 2021 by Miklombok | <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fmiklombok.github.io%2Fhotspot-mikrotik.html&count_bg=%23001A8E&title_bg=%23F30C0C&icon=opsgenie.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a></div>
+
+                            <!-- Post categories-->
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Mikrotik hotspot</a>
+                        </header>
+                        <!-- Preview image figure-->
+                        <figure class="mb-4"><img class="img-fluid rounded" src="img/bg3.png" alt="..." /></figure>
+                        <!-- Post content-->
+                        <section class="mb-5">
+                            <p class="fs-5 mb-4">
+                             Hotspot di Mikrotik adalah sebuah system untuk memberikan fitur autentikasi pada user yang akan menggunakan jaringan. <br>
+                             Jadi untuk bisa akses ke jaringan, client diharuskan memasukkan username dan password pada login page disediakan. Sumber: http://mikrotik.co.id/. <br><br>
+
+                              Langkah  Langkah Setting Hotspot Mikrotik : <br>
+                              1. <span style="font-family: bold">Bridge Port</span>  <br>
+                              - Klik Bridge -> + <br>
+                              Name: BridgeLAN dan OK. <br>
+                              - Klik ke Tab Port -> + <br>
+                              Pilih interface LAN, disini port LAN memakai ether2,ether3,dan ether4. port ini yang akan disambungkan ke wifi hotspot. <br> <br>
+                              2. <span style="font-family: bold">DHCP Client Mikrotik</span>  <br>
+                             - Klik IP -> DHCP Client ->+ <br>
+                             Pilih Interface WAN disini menggunakan ether1 pada mikrotik dan tekan OK agar mendapat IP dari router ISP dan status sampai status bound. <br><br>
+                             3. Address List Mikrotik <br>
+                             Klik IP -> Address -> Address List ->+ <br>
+                             Address: 192.168.222.1/24 <br>
+                             Network: 192.168.222.0 <br>
+                             Interface: BridgeLAN (interface bridge yang sudah dibuat ) <br><br>
+                             4. DNS Settings Mikrotik <br>
+                             Servers: 8.8.8.8 (DNS google) atau bisa menggunakan cloudflare 1.1.1.1. <br>
+                             Dynamic Servers: (terisi otomatis, DNS dari ISP modem). <br>
+                             Centang Allow Remote Requests dan tekan OK. <br><br>
+                             5. Firewall NAT Mikrotik <br>
+                             Klik IP -> Firewall -> NAT -> + <br>
+                             Chain: srcnat <br>
+                             Out Interface List: ether1 <br>
+                             Klik Tab Action <br>
+                             Action: masquerade setalah itu apply - ok<br>
+                             <hr>
+                             Setting Mikrotik dasar sudah selesai. Coba lakukan pengetesan akses internet dan test speed atau ping dari mikrotik ke 8.8.8.8. Klik New Terminal  ketik ping 8.8.8.8.
+                             <hr>
+                             6. Hotspot Mikrotik <br>
+                             Klik IP -> Hotspot ->Hotspot Setup -> +. <br>
+                             Hotspot interface : BridgeLAN <br>
+                             Local address: otomatis terisi <br> 
+                             Address pool: Otomatis Terisi <br>
+                             select certificate : none <br>
+                             ip address of SMTP server : 0.0.0.0 <br>
+                             Dns server : otomatis terisi <br>
+                             Dns name : balehotspot.net ( sesuaikan dengan keinginan anda sendiri ) <br>
+                             username dan password silahkan di sisi sendiri kemudian ok <br>
+                         
+                            
+                        </section>
+                    </article>
+                    <!-- Comments section-->
+                    <section class="mb-5">
+                        
+                </div>
+                <!-- Side widgets-->
+                <div class="col-lg-4">
+                    <!-- Search widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">Search</div>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Categories widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">Categori</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li><a href="https://miklombok.github.io/mikhmon.html">Mikhmon</a></li>
+                                        <li><a href="https://miklombok.github.io/sntp-server.html">Sntp-client</a></li>
+                                        <!-- <li><a href="#!">Script</a></li> -->
+                                    </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                    <ul class="list-unstyled mb-0">
+                                      <!--   <li><a href="#!">JavaScript</a></li>
+                                        <li><a href="#!">CSS</a></li>
+                                        <li><a href="#!">Tutorials</a></li> -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Side widget-->
+                    <div class="card mb-4">
+                        <div class="card-header">Ikuti Kami</div>
+                        <div class="card-body"><iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fweb.facebook.com%2FSetting-Mikrotik-RtRw-Net-Lombok-111280197728781&tabs=timeline&width=320&height=70&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=1408453226188374" width="320" height="70" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Miklombok 2021</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
