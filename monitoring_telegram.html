@@ -91,13 +91,10 @@
               :local sisa [($totq-($Md+$Mu)/1048576)];<br>
               :local exp [/ip hotspot user get [find name="$user"] comment];<br>
               :local Ma [/ip hotspot active print count-only];<br>
-              /tool fetch url="https://api.telegram.org/bot{{boottelegram}}/<br>
-              sendMessage?chat_id={{idtelegram}}&text==>> LOG-IN $user <<==%0A- IP Address : $address%0A- Mac Address<br>
-              : $mac%0A- Device : $dvc%0A- User Profil : {{userprofile}}%0A- Waktu Terpakai : $Mwp%0A- Kuota Terpakai :<br>
-              $Mt Mb%0A- exp : $exp%0A- Online : $Ma Users" mode=http keep-result=no}<br><br>
+              /tool fetch url="https://api.telegram.org/bot{{boottelegram}}/sendMessage?chat_id={{idtelegram}}&text==>> LOG-IN $user <<==%0A- IP Address : $address%0A- Mac Address: $mac%0A- Device : $dvc%0A- User Profil : {{userprofile}}%0A- Waktu Terpakai : $Mwp%0A- Kuota Terpakai :$Mt Mb%0A- exp : $exp%0A- Online : $Ma Users" mode=http keep-result=no}<br><br>
 
               <h4>Logout</h4>
-              /tool fetch url="https://api.telegram.org/bot{{boottelegram}}/sendMessage?chat_id={{idtelegram}}&text=Logout $user $address" <br>keep-result=no 
+              /tool fetch url="https://api.telegram.org/bot{{boottelegram}}/sendMessage?chat_id={{idtelegram}}&text=Logout $user $address" keep-result=no 
               </div>
             </div>
           </div>
